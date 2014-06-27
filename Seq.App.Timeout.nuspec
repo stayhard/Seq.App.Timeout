@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Seq.App.Timeout</id>
+    <version>1.0.0</version>
+    <authors>Stayhard</authors>
+    <owners>Stayhard</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/stayhard/Seq.App.Timeout</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Writes a timeout event after a specified time period has elapsed, unless received any event resetting the timer.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright Stayhard AB 2014</copyright>
+    <tags>seq-app seq serilog event</tags>
+    <dependencies>
+      <dependency id="Seq.Apps" version="1.0.2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\Seq.App.Timeout.dll" target="lib\net45" />
+    <file src="bin\Debug\Seq.App.Timeout.pdb" target="lib\net45" />
+  </files>
+</package>
