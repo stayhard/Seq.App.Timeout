@@ -27,12 +27,22 @@ namespace Seq.App.Timeout
             DisplayName = "Timeout Name")]
         public string Name { get; set; }
 
+        [SeqAppSetting(
+           DisplayName = "Event text",
+           HelpText = "Defaults to 'Event Timeout {TimeoutName}'")]
+        public string Text { get; set; } = "Event Timeout {TimeoutName}";
+
+        [SeqAppSetting(
+            DisplayName = "Event level",
+            HelpText = "Level of event to generate. Defaults to 'Information'. Valid values are 'Debug', 'Error', 'Fatal', 'Information', 'Warning', 'Verbose'")]
+        public Serilog.Events.LogEventLevel Level { get; set; }
+
         protected override void OnAttached()
         {
             base.OnAttached();
 
             _timer = new Timer(Timeout * 1000);
-            _timer.Elapsed += (sender, args) => Log.Information("Event Timeout {TimeoutName}", Name);
+            _timer.Elapsed += (sender, args) => Log.Write(Level, Text, Name);
             _timer.AutoReset = Repeat;
             _timer.Start();
         }
